@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  work_time_bot:
+    build: .
+    restart: always
+    container_name: work-time-bot
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - DATABASE_PATH=${DATABASE_PATH}
+      - DEFAULT_TIMEZONE=${DEFAULT_TIMEZONE}
+    # Логи в docker logs
+    volumes:
+      - "/srv/worktime-bot/data:/data"
+    stdin_open: true
+    tty: true
